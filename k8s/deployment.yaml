@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-event-matching
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-event-matching
+  template:
+    metadata:
+      labels:
+        app: ai-event-matching
+    spec:
+      containers:
+        - name: web
+          image: ai-event-matching:latest
+          ports:
+            - containerPort: 3000
